@@ -1,0 +1,40 @@
+# 操作系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# 环境变量与密钥（严禁提交到 GitHub！）
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Node.js / 前端
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.vite/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# Python / 后端与 AI
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# 其他常见临时文件
+tmp/
+temp/
+coverage/
