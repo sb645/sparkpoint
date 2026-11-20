@@ -4,6 +4,7 @@
 
 ## 快速导航
 
+- [Agent 团队协作规范（AGENTS.md，4 人共用必读）](AGENTS.md)
 - [新手黑客松实战指南（时间轴 / 分工 / Git 协作 / 避坑）](docs/PLAYBOOK.md)
 - [团队计划书与协作看板（队会填空版）](docs/TEAM_PLAN.md)
 - [路演 Pitch 5 分钟模板](pitch/PITCH_TEMPLATE.md)
@@ -14,6 +15,8 @@
 ```text
 xpoint/
 ├── README.md                 # 项目首页（提交前补充项目介绍与运行方式）
+├── AGENTS.md                 # 给 4 人各自的 AI Agent 看的协作与 Git 铁律
+├── CLAUDE.md                 # Claude Code 入口（指向 AGENTS.md）
 ├── .gitignore                # 忽略依赖、缓存与 .env 密钥文件
 ├── .env.example              # 环境变量名示例
 ├── docs/
