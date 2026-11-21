@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>昨晚的我有限公司 · 起床合同</title>
+  <meta name="description" content="让清醒时的昨晚的你，和想再睡五分钟的今早的你，签一份起床合同。">
+  <meta name="theme-color" content="#18233A">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body data-daypart="night">
+  <a class="skip-link" href="#screen">跳到合同正文</a>
+
+  <header class="topbar">
+    <p class="brand">昨晚的我有限公司</p>
+    <div class="topbar-controls">
+      <button type="button" class="toggle" id="toggle-notes" aria-pressed="false">查看设计逻辑</button>
+      <button type="button" class="toggle" id="toggle-mute" aria-pressed="false">演示静音</button>
+      <button type="button" class="btn-text topbar-reset" id="reset">重新开始</button>
+    </div>
+  </header>
+
+  <main class="desk">
+    <article class="paper" id="screen" aria-live="off">
+      <p class="paper-loading">正在准备合同……</p>
+    </article>
+    <div class="escape-hatch" id="escape-hatch" hidden>
+      <button type="button" class="btn-text" id="open-force-majeure" data-mechanism="force-majeure">不可抗力（生病、突发急事）</button>
+    </div>
+  </main>
+
+  <p class="sr-only" id="announcer" aria-live="polite"></p>
+
+  <dialog class="sheet" id="force-majeure-dialog" aria-labelledby="fm-title">
+    <form method="dialog" class="sheet-body">
+      <h2 id="fm-title">申请不可抗力豁免</h2>
+      <p>闹钟会立即停止，履约报告会如实记为"不可抗力豁免"。真有急事，就别跟合同较劲了。</p>
+      <label class="field">
+        <span class="field-label">情况说明（可不填）</span>
+        <input class="input hand" name="note" maxlength="60" autocomplete="off" placeholder="例如：发烧 38.5 度">
+      </label>
+      <div class="actions">
+        <button class="btn btn-primary" value="confirm">确认豁免并停止闹钟</button>
+        <button class="btn btn-secondary" value="cancel">返回</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
