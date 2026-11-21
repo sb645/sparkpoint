@@ -8,10 +8,12 @@
 
 | 成员姓名 | GitHub 账号 | 擅长方向（前端/后端/AI/设计/演讲等） | 认领角色 | 主负责目录 |
 | --- | --- | --- | --- | --- |
-| 成员 1（待填） | `@...` | | 统筹 / 集成 | `docs/` |
-| 成员 2（待填） | `@...` | | 前端 / UI | `frontend/` |
-| 成员 3（待填） | `@...` | | 后端 / AI | `backend/` |
-| 成员 4（待填） | `@...` | | 补位 + PPT / 路演 | `pitch/` |
+| 成员 1（待填） | `@...` | | 统筹 + 前端主流程（原 A+B） | `docs/`、`frontend/`（除 `frontend/deep/`） |
+| 成员 2（待填） | `@...` | | 合同规则与统计（原 C） | `backend/contract.js`、`backend/samples.js`、`backend/contract.test.js` |
+| 成员 3（待填） | `@...` | | 深化层 + 部署（新增，文档中记为 E） | `frontend/deep/`、`backend/judge.js`、`api/`、Vercel 配置 |
+| 成员 4（待填） | `@...` | | 调研、海报、路演（原 D） | `pitch/` |
+
+> 2026-11-21 调整：A 和 B 合并给成员 1，空出的人专门做深化层和部署。详细交付见 [WAKE_CONTRACT_PLAN.md](WAKE_CONTRACT_PLAN.md)「四人认领表」。
 
 ---
 
