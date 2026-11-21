@@ -1,14 +1,15 @@
 # CrossPointX 2026 黑客松 · 四人团队工作区（xpoint）
 
-> 比赛日期：**2026 年 11 月 21–22 日**｜提交截止：**11 月 22 日 13:00**｜路演开始：**14:00**
+> 比赛日期：**2026 年 11 月 21–22 日**｜赛道：**Track 2: Reverse UX Challenge**｜提交截止：**11 月 22 日 13:00（Devpost 硬截止）**｜协议：**Apache-2.0**（见 [LICENSE](LICENSE)）
+> 官方页面：<https://cpx2026.devpost.com/>（[Rules](https://cpx2026.devpost.com/rules) / [Resources](https://cpx2026.devpost.com/resources)）
 
 ## 快速导航
 
 - [Agent 团队协作规范（AGENTS.md，4 人共用必读）](AGENTS.md)
+- [团队计划书、官方细则与提交 Checklist（TEAM_PLAN.md）](docs/TEAM_PLAN.md)
 - [新手黑客松实战指南（时间轴 / 分工 / Git 协作 / 避坑）](docs/PLAYBOOK.md)
-- [团队计划书与协作看板（队会填空版）](docs/TEAM_PLAN.md)
 - [路演 Pitch 5 分钟模板](pitch/PITCH_TEMPLATE.md)
-- [官方赛程原图](docs/cpx-2026-agenda.png)
+- [官方赛程原图](docs/cpx-2026-agenda.png)｜[赛题与规则原图](docs/cpx-2026-tracks-rules.jpg)
 
 ## 仓库目录规划
 
