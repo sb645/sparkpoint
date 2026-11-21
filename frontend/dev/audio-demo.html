@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f6f4">
+  <title>铃声试听 · 昨晚的我有限公司</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font: 100%/1.6 "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #242c2a;
+      background: #f2f6f4;
+      --accent: #175346;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 42rem; margin: 10vh auto; padding: 0 1.25rem; }
+    h1 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+    p { margin: .8rem 0 2rem; }
+    fieldset { border: 0; padding: 0; margin: 1.5rem 0; min-inline-size: 0; }
+    legend { font-weight: 700; margin-bottom: .5rem; padding: 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+    button, label {
+      display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+      min-height: 2.875rem; padding: .45rem .9rem;
+      color: inherit; background: white; border: 1px solid #828c85;
+      border-radius: .35rem; font: inherit; cursor: pointer; touch-action: manipulation;
+    }
+    button:hover, label:hover { background: #e4ebe4; }
+    button[aria-pressed="true"], label:has(:checked) {
+      border-color: var(--accent); color: var(--accent); background: #dcebe1;
+    }
+    input { margin: 0; accent-color: var(--accent); }
+    button:focus-visible, label:has(input:focus-visible) {
+      outline: 3px solid var(--accent); outline-offset: 3px;
+    }
+    output {
+      display: block; margin-top: 2rem; padding: 1rem 0;
+      border-block: 1px solid #a5afa6; font-weight: 650;
+    }
+    @media (max-width: 32rem) {
+      main { margin-block: 2.5rem; }
+      .controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      label { padding-inline: .35rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>铃声试听</h1>
+    <p id="guide" aria-live="polite">先解锁声音，再点「开始」。从 0 切到 3，听听双音之间的间隔怎样缩短。</p>
+    <fieldset>
+      <legend>播放控制</legend>
+      <div class="controls">
+        <button type="button" id="unlock">解锁声音</button>
+        <button type="button" id="start">开始</button>
+        <button type="button" id="stop">停止</button>
+        <button type="button" id="mute" aria-pressed="false">静音</button>
+      </div>
+    </fieldset>
+    <fieldset id="levels">
+      <legend>铃声强度</legend>
+      <div class="controls">
+        <label><input type="radio" name="level" value="0" checked>0 · 柔和双音</label>
+        <label><input type="radio" name="level" value="1">1 · 轻微失谐</label>
+        <label><input type="radio" name="level" value="2">2 · 锯齿音</label>
+        <label><input type="radio" name="level" value="3">3 · 急促方波</label>
+      </div>
+    </fieldset>
+    <output id="status" aria-live="polite"></output>
+  </main>
+  <script type="module">
+    import { createRinger } from '../audio.js';
+
+    const ringer = createRinger();
+    const mute = document.getElementById('mute');
+    function render() {
+      mute.setAttribute('aria-pressed', String(ringer.isMuted()));
+      document.getElementById('status').textContent = [
+        ringer.isPlaying() ? '响铃已开始' : '响铃已停止',
+        ringer.isMuted() ? '静音开启' : '静音关闭',
+        '强度 ' + ringer.getIntensity(),
+      ].join(' · ');
+    }
+    document.getElementById('unlock').onclick = () => {
+      void ringer.unlock();
+      document.getElementById('guide').textContent = (window.AudioContext || window.webkitAudioContext)
+        ? '已请求解锁声音。点「开始」试听，打开静音后，响铃状态应保持已开始。'
+        : '当前浏览器缺少音频支持。仍可用下方按钮测试响铃和静音状态。';
+    };
+    document.getElementById('start').onclick = () => { ringer.start(); render(); };
+    document.getElementById('stop').onclick = () => { ringer.stop(); render(); };
+    mute.onclick = () => { ringer.setMuted(!ringer.isMuted()); render(); };
+    document.getElementById('levels').onchange = (event) => {
+      ringer.setIntensity(Number(event.target.value));
+      render();
+    };
+    render();
+  </script>
+</body>
+</html>
