@@ -1,5 +1,7 @@
 # 团队计划书与协作看板（队会填空版）
 
+> **当前状态（11/21 16:00）**：选题已锁定《昨晚的我有限公司》，进入开发阶段。代码级接口契约已发布在 [API_CONTRACT.md](API_CONTRACT.md)。下一个检查点：**17:30 两种合同在页面上打通**；**21:00 决策点**决定是否做深化 4。各成员当前任务见 [WAKE_CONTRACT_PLAN.md](WAKE_CONTRACT_PLAN.md) 时间表。
+
 > 使用方式：今晚（11/20）先把**第 1 节**填完；明天（11/21）开幕式结束后 10:10–12:30 队会时把**第 2、3 节**定死并提交到仓库。
 
 ---
@@ -83,7 +85,7 @@
 
 ## 4. 接口契约速记（11/21 中午定好，避免前后端扯皮）
 
-见 [WAKE_CONTRACT_PLAN.md](WAKE_CONTRACT_PLAN.md)「实现约定与联调」：`initialState()` / `transition(state, event, nowMs)` 事件契约，以及 `POST /api/rebut`。
+**写代码以 [API_CONTRACT.md](API_CONTRACT.md) 为准**：`initialState()` / `transition(state, event, nowMs)` 的状态字段、阶段名、事件格式、错误码，`judge.js` 函数签名，`frontend/deep/*` 挂载函数，以及 `POST /api/rebut`。概要见 [WAKE_CONTRACT_PLAN.md](WAKE_CONTRACT_PLAN.md)「实现约定与联调」。
 
 ---
 
